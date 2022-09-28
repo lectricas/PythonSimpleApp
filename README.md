@@ -39,3 +39,9 @@ python manage.py test bank
 ```
 
 to run the tests.
+
+###Linter
+
+```sh
+pylint --load-plugins pylint_django bank
+```

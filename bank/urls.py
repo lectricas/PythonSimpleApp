@@ -1,3 +1,5 @@
+"""Module docstring"""
+
 from django.urls import path
 from .views import create_account
 from .views import delete_account
