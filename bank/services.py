@@ -1,3 +1,4 @@
+"""Module docstring"""
 from django_grpc_framework.services import Service
 
 from bank.models import Account
@@ -7,6 +8,7 @@ from bank_proto.bank_pb2 import ResponseMessage
 class BankService(Service):
 
     def Deposit(self, request, context):
+        """grpc deposit"""
         try:
             account = Account.objects.get(pk=request.account_id)
             if account.currency == request.currency:
@@ -19,6 +21,7 @@ class BankService(Service):
             return ResponseMessage(code=0, message="Account does not exists")
 
     def Withdraw(self, request, context):
+        """grpc withdraw"""
         try:
             account = Account.objects.get(pk=request.account_id)
             if account.currency == request.currency:
