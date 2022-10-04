@@ -1,11 +1,11 @@
 """Module docstring"""
-from django_grpc_framework.services import Service
+from bank_proto.bank_pb2_grpc import BankServiceServicer
 
 from bank.models import Account
 from bank_proto.bank_pb2 import ResponseMessage
 
 
-class BankService(Service):
+class BankService(BankServiceServicer):
 
     def Deposit(self, request, context):
         """grpc deposit"""

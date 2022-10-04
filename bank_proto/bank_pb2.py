@@ -11,24 +11,21 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15\x62\x61nk_proto/bank.proto\x12\nbank_proto\x1a\x1bgoogle/protobuf/empty.proto\"\x06\n\x04Null\"F\n\x0e\x44\x65positMessage\x12\x12\n\naccount_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x05\x12\x10\n\x08\x63urrency\x18\x03 \x01(\t\"G\n\x0fWithdrawMessage\x12\x12\n\naccount_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x05\x12\x10\n\x08\x63urrency\x18\x03 \x01(\t\"0\n\x0fResponseMessage\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t2\xc5\x01\n\x0b\x42\x61nkService\x12\x42\n\x07\x44\x65posit\x12\x1a.bank_proto.DepositMessage\x1a\x1b.bank_proto.ResponseMessage\x12,\n\x06Health\x12\x10.bank_proto.Null\x1a\x10.bank_proto.Null\x12\x44\n\x08Withdraw\x12\x1b.bank_proto.WithdrawMessage\x1a\x1b.bank_proto.ResponseMessageb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15\x62\x61nk_proto/bank.proto\x12\nbank_proto\"F\n\x0e\x44\x65positMessage\x12\x12\n\naccount_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x05\x12\x10\n\x08\x63urrency\x18\x03 \x01(\t\"G\n\x0fWithdrawMessage\x12\x12\n\naccount_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x05\x12\x10\n\x08\x63urrency\x18\x03 \x01(\t\"0\n\x0fResponseMessage\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t2\x97\x01\n\x0b\x42\x61nkService\x12\x42\n\x07\x44\x65posit\x12\x1a.bank_proto.DepositMessage\x1a\x1b.bank_proto.ResponseMessage\x12\x44\n\x08Withdraw\x12\x1b.bank_proto.WithdrawMessage\x1a\x1b.bank_proto.ResponseMessageb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'bank_proto.bank_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _NULL._serialized_start=66
-  _NULL._serialized_end=72
-  _DEPOSITMESSAGE._serialized_start=74
-  _DEPOSITMESSAGE._serialized_end=144
-  _WITHDRAWMESSAGE._serialized_start=146
-  _WITHDRAWMESSAGE._serialized_end=217
-  _RESPONSEMESSAGE._serialized_start=219
-  _RESPONSEMESSAGE._serialized_end=267
-  _BANKSERVICE._serialized_start=270
-  _BANKSERVICE._serialized_end=467
+  _DEPOSITMESSAGE._serialized_start=37
+  _DEPOSITMESSAGE._serialized_end=107
+  _WITHDRAWMESSAGE._serialized_start=109
+  _WITHDRAWMESSAGE._serialized_end=180
+  _RESPONSEMESSAGE._serialized_start=182
+  _RESPONSEMESSAGE._serialized_end=230
+  _BANKSERVICE._serialized_start=233
+  _BANKSERVICE._serialized_end=384
 # @@protoc_insertion_point(module_scope)
