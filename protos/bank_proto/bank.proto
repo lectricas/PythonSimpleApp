@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package bank_proto;
+
+message DepositMessage {
+  int32 account_id = 1;
+  int32 amount = 2;
+  string currency = 3;
+}
+
+message WithdrawMessage {
+  int32 account_id = 1;
+  int32 amount = 2;
+  string currency = 3;
+}
+
+message ResponseMessage {
+  int32 code = 1;
+  string message = 2;
+}
+
+service BankService {
+  rpc Deposit(DepositMessage) returns (ResponseMessage);
+  rpc Withdraw(WithdrawMessage) returns (ResponseMessage);
+}
+
+
+//python -m grpc_tools.protoc --proto_path=./protos --python_out=./ --grpc_python_out=./ ./protos/bank_proto/bank.proto
