@@ -1,10 +1,12 @@
 """Module docstring"""
 
+import pytest
+from django.test import Client
 from django.test import TestCase
 from django.urls import reverse
-from django.test import Client
 
 from bank.models import Account
+from bank_proto.bank_pb2 import DepositMessage
 
 
 class AccountBasicTests(TestCase):
@@ -96,3 +98,34 @@ class AccountIntegrationTests(TestCase):
         )
 
         self.assertContains(response, 'Error')
+
+
+@pytest.fixture(scope='module')
+def grpc_add_to_server():
+    from bank_proto.bank_pb2_grpc import add_BankServiceServicer_to_server
+    return add_BankServiceServicer_to_server
+
+
+@pytest.fixture(scope='module')
+def grpc_servicer():
+    from bank.services import BankService
+
+    return BankService()
+
+
+@pytest.fixture(scope='module')
+def grpc_stub_cls(grpc_channel):
+    from bank_proto.bank_pb2_grpc import BankServiceStub
+    return BankServiceStub
+
+
+@pytest.mark.django_db(transaction=True)
+def testDepositMessage(grpc_stub):
+    """Пока только один тест, и плохой, не успеваю. Постараюсь добавить параметризацию попозже"""
+    obj = Account.objects.create(name="Hello", currency="RUB")
+    obj.save()
+    obj.refresh_from_db()
+    request = DepositMessage(account_id=1, amount=200, currency="RUB")
+    response = grpc_stub.Deposit(request)
+    assert response.code == 1
+    assert response.message == "Added"
